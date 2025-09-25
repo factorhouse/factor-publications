@@ -1,11 +1,16 @@
 const { Marp } = require('@marp-team/marp-core');
 const fs = require('fs');
 const path = require('path');
+const handlebars = require('handlebars');
 
 // Create output directory
 if (!fs.existsSync('out')) {
   fs.mkdirSync('out', { recursive: true });
 }
+
+// Load and compile template
+const templateSource = fs.readFileSync('template.hbs', 'utf8');
+const template = handlebars.compile(templateSource);
 
 const publicationPaths = fs.readdirSync('publications');
 
@@ -25,12 +30,18 @@ for (const pPath of publicationPaths) {
   files.forEach((file) => {
     const filePath = path.join(publicationPath, file);
     const markdown = fs.readFileSync(filePath, 'utf8');
-    const { html } = marp.render(markdown);
+    const { html, css } = marp.render(markdown);
 
     const fileName = path.basename(file, '.md') + '.html';
     const outputPath = path.join(outputDir, fileName);
 
-    fs.writeFileSync(outputPath, html);
+    const fullHtml = template({
+      title: path.basename(file, '.md'),
+      html,
+      css
+    });
+
+    fs.writeFileSync(outputPath, fullHtml);
     console.log(`Built: ${outputPath}`);
   });
 
