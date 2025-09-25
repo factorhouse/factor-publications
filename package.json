@@ -1,0 +1,27 @@
+{
+  "name": "@factorhouse/publications",
+  "version": "1.0.0",
+  "description": "![factorhouse](./images/factorhouse.jfif)",
+  "private": true,
+  "scripts": {
+    "build": "rm -r out/ && node build.js",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "nodemon --watch publications --exec \"node build.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/factorhouse/factor-publications.git"
+  },
+  "author": "engineering@factorhouse.io",
+  "bugs": {
+    "url": "https://github.com/factorhouse/factor-publications/issues"
+  },
+  "homepage": "https://github.com/factorhouse/factor-publications#readme",
+  "dependencies": {
+    "@marp-team/marp-core": "^4.1.0",
+    "wrangler": "^4.40.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
