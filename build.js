@@ -30,7 +30,7 @@ for (const pPath of publicationPaths) {
   files.forEach((file) => {
     const filePath = path.join(publicationPath, file);
     const markdown = fs.readFileSync(filePath, 'utf8');
-    const { html, css } = marp.render(markdown);
+    const { html, css, comments } = marp.render(markdown);
 
     const fileName = path.basename(file, '.md') + '.html';
     const outputPath = path.join(outputDir, fileName);
@@ -38,7 +38,8 @@ for (const pPath of publicationPaths) {
     const fullHtml = template({
       title: path.basename(file, '.md'),
       html,
-      css
+      css,
+      script: comments.join('\n')
     });
 
     fs.writeFileSync(outputPath, fullHtml);
