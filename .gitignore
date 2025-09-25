@@ -1,2 +1,5 @@
 .vscode
 .ignore
+node_modules/
+out/
+.yarn/
