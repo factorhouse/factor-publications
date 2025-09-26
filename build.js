@@ -40,6 +40,14 @@ for (const pPath of publicationPaths) {
     fs.cpSync(imagesDir, outputImagesDir, { recursive: true });
     console.log(`Copied images: ${outputImagesDir}`);
   }
+
+  // Copy fonts directory to output if it exists in the root
+  const fontsDir = path.join('.', 'fonts');
+  if (fs.existsSync(fontsDir)) {
+    const outputFontsDir = path.join(outputDir, 'fonts');
+    fs.cpSync(fontsDir, outputFontsDir, { recursive: true });
+    console.log(`Copied fonts: ${outputFontsDir}`);
+  }
 }
 
 console.log('All done! 🌛');
