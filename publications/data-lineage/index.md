@@ -231,12 +231,7 @@ Spark: One lineage job per action
 
 <div class="center">
 
-<div class="center">
-
 ![](./images/qna.png)
-
-</div>
-
 
 </div>
 
