@@ -229,9 +229,14 @@ Spark: One lineage job per action
 
 ---
 
-<div class="center" style="font-size: 3.5em">
+<div class="center">
 
-Questions?
+<div class="center">
+
+![](./images/qna.png)
+
+</div>
+
 
 </div>
 
