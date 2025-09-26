@@ -17,11 +17,9 @@ style: |
     color: white;
     padding: 1.25em;
   }
-
   * {
     font-weight: 400;
   }
-
   h1, h2, h3, h4, h5, h6, p, li {
     color: white;
     font-weight: 700;
@@ -33,9 +31,6 @@ style: |
     color: white;
     border-bottom: 1px dashed white;
     text-decoration: none;
-  }
-  footer {
-    text-align: center;
   }
 ---
 
@@ -220,11 +215,10 @@ Spark: One lineage job per action
 
 ### Key Takeaways
 
-- **Choose the Right Integration Pattern**
+- **Choose the Right Pattern**
   - Balance simplicity vs. reliability.
 - **Align Namespaces**
-
-  - Essential for linking jobs across technologies (e.g., Flink & Spark).
+  - Essential for cross-tech lineage.
 
   </div>
   <div>
@@ -235,9 +229,16 @@ Spark: One lineage job per action
   - See link on the next slide.
 - **Start Small**
   - Instrument a single critical pipeline first.
-- **Questions?**
 
   </div>
+</div>
+
+---
+
+<div class="center" style="font-size: 3.5em">
+
+Questions?
+
 </div>
 
 ---
