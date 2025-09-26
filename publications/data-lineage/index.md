@@ -40,10 +40,10 @@ Developer Experience @ Factor House
 The journey of data - where it comes from, how it’s transformed, and where it ends up.
 
 ## Why Data Lineage Matters
-* **Debugging & Root Cause Analysis**: Quickly trace issues back to the source.
-* **Impact Analysis & Governance**: See what happens if a table changes.
-* **Compliance & Audit**: Show data provenance for regulations.
-* **Trust & Reliability**: Increase confidence in data products.
+- **Debugging & Root Cause Analysis**: Quickly trace issues back to the source.
+- **Impact Analysis & Governance**: See what happens if a table changes.
+- **Compliance & Audit**: Show data provenance for regulations.
+- **Trust & Reliability**: Increase confidence in data products.
 
 ---
 
@@ -57,10 +57,10 @@ The journey of data - where it comes from, how it’s transformed, and where it 
 
 Tracks lineage across popular data tools:
 
-* **Airflow / dbt / Great Expectations (data quality)**
-* **Flink / Spark / Hive & Trino**
-* **Marquez** (visualization & metadata)
-* ⚠️ **Kafka** is not an official integration source yet.
+- **Airflow / dbt / Great Expectations (data quality)**
+- **Flink / Spark / Hive & Trino**
+- **Marquez** (visualization & metadata)
+- ⚠️ **Kafka** is not an official integration source yet.
 
 ---
 
@@ -113,11 +113,11 @@ One answers **"what happened?"** and the other shows **"what is happening right 
 
 Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent for Kafka Connect
 
-* **How it works**
+- **How it works**
   - Hooks into the connector lifecycle (`RUNNING`, `FAIL`, `COMPLETE`) without altering data records.
-* **Key Feature**:
+- **Key Feature**:
   - Column-level lineage via Avro schemas in Schema Registry
-* **Consistent Namespacing**
+- **Consistent Namespacing**
   - Creates physical dataset namespaces (``kafka://...`, `s3://...`) for job linking across Flink and Spark.
 
 ---
