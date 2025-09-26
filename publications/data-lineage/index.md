@@ -6,7 +6,7 @@ backgroundImage: url('./images/bg.png')
 backgroundSize: cover
 style: |
   section {
-    font-size: 2.2em;
+    font-size: 1.8em;
     color: white;
     padding: 1.25em;
   }
@@ -56,9 +56,7 @@ The journey of data - where it comes from, how it’s transformed, and where it 
 
 [OpenLineage](https://openlineage.io/docs) is an open standard for capturing lineage metadata from jobs in execution.
 
-## Integrations
-
-Tracks lineage across popular data tools:
+It supports integration with popular data tools:
 
 - **Airflow / dbt / Great Expectations (data quality)**
 - **Flink / Spark / Hive & Trino**
@@ -70,8 +68,6 @@ Tracks lineage across popular data tools:
 # Understanding the Two Lineage Paradigms
 
 One answers **"what happened?"** and the other shows **"what is happening right now."**
-
-<br>
 
 <style>
 .columns {
@@ -127,7 +123,7 @@ Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent 
 
 Kafka: One lineage job per connector
 
-<img src="./images/data-lineage.gif" style="max-width:80%; max-height:100vh; display:block; margin:auto;">
+<img src="./images/data-lineage.gif" style="max-width:65%; max-height:80vh; display:block; margin:auto;">
 
 ---
 
@@ -135,14 +131,11 @@ Kafka: One lineage job per connector
 
 OpenLineage handles [Flink 1.x and 2.x differently](https://openlineage.io/docs/integrations/flink/about); we use Flink 1.20.
 
-<br>
-
 <div class="columns">
   <div>
 
   ### Native `JobListener`: 
   *(For DataStream API)*
-
   - **Method:** Use `OpenLineageFlinkJobListener`.
   - **Pros:** Simple, "out-of-the-box" integration.
   - **Cons:** **CRITICAL:** Fails to report the final `ABORT` status when a job is cancelled.
@@ -152,7 +145,6 @@ OpenLineage handles [Flink 1.x and 2.x differently](https://openlineage.io/docs/
 
   ### Manual Orchestration
   *(For Table API)*
-
   - **Method:** Use the OpenLineage Java client directly.
   - **Pros:** Complete lifecycle tracking including (`ABORT`/`FAIL`).
   - **Cons:** Requires more explicit code in the application.
@@ -164,7 +156,7 @@ OpenLineage handles [Flink 1.x and 2.x differently](https://openlineage.io/docs/
 
 Flink: One lineage job per application
 
-<img src="./images/data-lineage.gif" style="max-width:80%; max-height:100vh; display:block; margin:auto;">
+<img src="./images/data-lineage.gif" style="max-width:65%; max-height:80vh; display:block; margin:auto;">
 
 ---
 
@@ -183,7 +175,7 @@ A batch Spark job reads from a Flink Iceberg table and writes to a new one.
 
 Spark: One lineage job per action
 
-<img src="./images/data-lineage.gif" style="max-width:80%; max-height:100vh; display:block; margin:auto;">
+<img src="./images/data-lineage.gif" style="max-width:65%; max-height:80vh; display:block; margin:auto;">
 
 ---
 
@@ -217,10 +209,4 @@ Spark: One lineage job per action
 
 # Let's Get Connected!
 
-<br>
-
-<div class="center">
-
-![](./images/qr-codes.png)
-
-</div>
+<img src="./images/qr-codes.png" style="max-width:80%; max-height:80vh; display:block; margin:auto;">
