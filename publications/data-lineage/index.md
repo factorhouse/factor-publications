@@ -83,7 +83,7 @@ One shows **"what happened"**, the other **"what's happening now"**.
 <style>
 .columns {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   text-align: left;
 }
@@ -123,7 +123,7 @@ _(Real-time & Operational)_
 
 # Kafka: Enabling Lineage with Connect
 
-Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent for Kafka Connect
+Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent.
 
 - **How it works**
   - Hooks into connector lifecycle (`RUNNING`, `FAIL`, `COMPLETE`) without changing records.
@@ -165,9 +165,9 @@ _(For DataStream API)_
 
 _(For Table API)_
 
-- **Method:** Use the OpenLineage Java client directly.
+- **Method:** Use the OpenLineage Java client.
 - **Pros:** Complete lifecycle tracking including (`ABORT`/`FAIL`).
-- **Cons:** Requires more explicit code in the application.
+- **Cons:** Requires more explicit code in the app.
 
   </div>
 </div>
