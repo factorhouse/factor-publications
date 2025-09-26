@@ -167,7 +167,7 @@ _(For Table API)_
 
 - **Method:** Use OpenLineage Java client.
 - **Pros:** Complete lifecycle tracking including (`ABORT`/`FAIL`).
-- **Cons:** Requires more explicit code in the app.
+- **Cons:** Requires more explicit code.
 
   </div>
 </div>
