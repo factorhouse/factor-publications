@@ -26,10 +26,7 @@ style: |
   }
 ---
 
-<div style="font-size: 2em; line-height: 1.2; color: white;">
-  Building End-to-End Lineage<br>
-  <span style="margin-left: 2em;">with Kafka, Flink, and Spark</span>
-</div>
+# Building End-to-End Lineage with Kafka, Flink, and Spark
 
 <br><br><br><br><br>
 
@@ -209,4 +206,8 @@ Spark: One lineage job per action
 
 # Let's Get Connected!
 
-<img src="./images/qr-codes.png" style="max-width:80%; max-height:80vh; display:block; margin:auto;">
+<div class="center">
+
+![](./images/qr-codes.png)
+
+</div>
