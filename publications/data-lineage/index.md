@@ -1,14 +1,14 @@
 ---
 marp: true
 paginate: false
-title: End-to-End Data Lineage
+title: Building End-to-End Lineage
 backgroundImage: url('./images/bg.png')
 backgroundSize: cover
 style: |
   section {
-    font-size: 30px;
+    font-size: 2.2em;
     color: white;
-    padding: 20px;
+    padding: 1.25em;
   }
   h1, h2, h3, h4, h5, h6, p, li {
     color: white;
@@ -26,7 +26,10 @@ style: |
   }
 ---
 
-# End-to-End Data Lineage from Kafka to Flink and Spark
+<div style="font-size: 2em; line-height: 1.2; color: white;">
+  Building End-to-End Lineage<br>
+  <span style="margin-left: 2em;">with Kafka, Flink, and Spark</span>
+</div>
 
 <br><br><br><br><br>
 
@@ -60,7 +63,7 @@ Tracks lineage across popular data tools:
 - **Airflow / dbt / Great Expectations (data quality)**
 - **Flink / Spark / Hive & Trino**
 - **Marquez** (visualization & metadata)
-- ⚠️ **Kafka** is not an official integration source yet.
+- ⚠️ **Kafka** is not an official integration source.
 
 ---
 
@@ -109,38 +112,106 @@ One answers **"what happened?"** and the other shows **"what is happening right 
 
 ---
 
-# Lineage for Kafka in Action
+# Kafka: Enabling Lineage with Connect
 
 Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent for Kafka Connect
 
 - **How it works**
   - Hooks into the connector lifecycle (`RUNNING`, `FAIL`, `COMPLETE`) without altering data records.
-- **Key Feature**:
+- **Key Feature**
   - Column-level lineage via Avro schemas in Schema Registry
 - **Consistent Namespacing**
-  - Creates physical dataset namespaces (``kafka://...`, `s3://...`) for job linking across Flink and Spark.
+  - Creates physical dataset namespaces (`kafka://...`, `s3://...`) for job linking across Flink and Spark.
 
 ---
 
-# Flink Jobs
+Kafka: One lineage job per connector
 
-- Native lineage features
-- Manual orchestration of lineage events
-
----
-
-# Spark Pipeline
-
-- Built-in capabilities
-- Job linking in practice: namespace alignment and granularity
+<img src="./images/data-lineage.gif" style="max-width:80%; max-height:100vh; display:block; margin:auto;">
 
 ---
 
-# Conclusion & Best Practices
+# Flink: Two Integration Patterns
 
-- Cross-technology insights
-- Patterns for implementing lineage effectively
-- Final wrap-up and next steps
+OpenLineage handles [Flink 1.x and 2.x differently](https://openlineage.io/docs/integrations/flink/about); we use Flink 1.20.
+
+<br>
+
+<div class="columns">
+  <div>
+
+  ### Native `JobListener`: 
+  *(For DataStream API)*
+
+  - **Method:** Use `OpenLineageFlinkJobListener`.
+  - **Pros:** Simple, "out-of-the-box" integration.
+  - **Cons:** **CRITICAL:** Fails to report the final `ABORT` status when a job is cancelled.
+
+  </div>
+  <div>
+
+  ### Manual Orchestration
+  *(For Table API)*
+
+  - **Method:** Use the OpenLineage Java client directly.
+  - **Pros:** Complete lifecycle tracking including (`ABORT`/`FAIL`).
+  - **Cons:** Requires more explicit code in the application.
+
+  </div>
+</div>
+
+---
+
+Flink: One lineage job per application
+
+<img src="./images/data-lineage.gif" style="max-width:80%; max-height:100vh; display:block; margin:auto;">
+
+---
+
+# Spark: Completing the End-to-End Picture
+
+A batch Spark job reads from a Flink Iceberg table and writes to a new one.
+
+- **Method:** OpenLineage Java **agent** via `spark.extraListeners`
+- **Discovery:** Auto-detects inputs/outputs from query plan
+- **Granularity:** Parent job with child jobs per action
+
+💡 **Namespace alignment** is key
+- Spark and upstream jobs (e.g., Flink) must use the same physical namespace (`s3://warehouse`) for end-to-end lineage.
+
+---
+
+Spark: One lineage job per action
+
+<img src="./images/data-lineage.gif" style="max-width:80%; max-height:100vh; display:block; margin:auto;">
+
+---
+
+# Conclusion: Key Takeaways & Next Steps
+
+<div class="columns">
+  <div>
+
+  ### Key Takeaways
+
+  - **Choose the Right Integration Pattern**
+    - Balance simplicity vs. reliability.
+  - **Align Namespaces**
+    - Essential for linking jobs across technologies (e.g., Flink & Spark).
+
+  </div>
+  <div>
+
+  ### Next Steps
+
+  - **Explore the data lineage labs**
+    - See link on the next slide.
+  - **Start Small**
+    - Instrument a single critical pipeline first.
+  - **Questions?**
+
+  </div>
+</div>
 
 ---
 
