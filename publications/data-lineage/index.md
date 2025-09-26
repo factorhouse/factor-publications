@@ -78,7 +78,7 @@ It supports integration with popular data tools:
 
 # Understanding the Two Lineage Paradigms
 
-One shows **"what happened"**, the other **"what's happening now"**
+One shows **"what happened"**, the other **"what's happening now"**.
 
 <style>
 .columns {
