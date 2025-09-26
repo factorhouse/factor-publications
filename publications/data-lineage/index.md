@@ -5,13 +5,26 @@ title: Building End-to-End Lineage
 backgroundImage: url('./images/bg.png')
 backgroundSize: cover
 style: |
+  @font-face {
+    font-family: 'Stolzl';
+    src: url('./fonts/Stolzl-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
   section {
+    font-family: 'Stolzl', sans-serif;
     font-size: 1.8em;
     color: white;
     padding: 1.25em;
   }
+
+  * {
+    font-weight: 400;
+  }
+
   h1, h2, h3, h4, h5, h6, p, li {
     color: white;
+    font-weight: 700;
   }
   .center {
     text-align: center;
@@ -31,6 +44,7 @@ style: |
 <br><br><br><br><br>
 
 ## Jaehyeon Kim
+
 Developer Experience @ Factor House
 
 ---
@@ -40,6 +54,7 @@ Developer Experience @ Factor House
 The journey of data - where it comes from, how it’s transformed, and where it ends up.
 
 ## Why Data Lineage Matters
+
 - **Debugging & Root Cause Analysis**: Quickly trace issues back to the source.
 - **Impact Analysis & Governance**: See what happens if a table changes.
 - **Compliance & Audit**: Show data provenance for regulations.
@@ -81,24 +96,26 @@ One answers **"what happened?"** and the other shows **"what is happening right 
 <div class="columns">
   <div>
 
-  ### Batch Lineage:
-  *(Retrospective)*
+### Batch Lineage:
 
-  - **Data:** Bounded Sets
-  - **Lifecycle:** Finite, Scheduled
-  - **Capture:** At Job Completion
-  - **Result:** Historical Audit Trail
+_(Retrospective)_
+
+- **Data:** Bounded Sets
+- **Lifecycle:** Finite, Scheduled
+- **Capture:** At Job Completion
+- **Result:** Historical Audit Trail
 
   </div>
   <div>
 
-  ### Streaming Lineage:
-  *(Real-time & Operational)*
+### Streaming Lineage:
 
-  - **Challenge:** Unbounded Streams
-  - **Challenge:** Continuous Jobs
-  - **Opportunity:** Capture **During** Job Execution
-  - **Opportunity:** A **Live, Observable System**
+_(Real-time & Operational)_
+
+- **Challenge:** Unbounded Streams
+- **Challenge:** Continuous Jobs
+- **Opportunity:** Capture **During** Job Execution
+- **Opportunity:** A **Live, Observable System**
 
   </div>
 </div>
@@ -120,6 +137,7 @@ Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent 
 
 Kafka: One lineage job per connector
 <br>
+
 <div class="center">
 
 ![](./images/data-lineage.gif)
@@ -135,20 +153,24 @@ OpenLineage handles [Flink 1.x and 2.x differently](https://openlineage.io/docs/
 <div class="columns">
   <div>
 
-  ### Native `JobListener`: 
-  *(For DataStream API)*
-  - **Method:** Use `OpenLineageFlinkJobListener`.
-  - **Pros:** Simple, "out-of-the-box" integration.
-  - **Cons:** **CRITICAL:** Fails to report the final `ABORT` status when a job is cancelled.
+### Native `JobListener`:
+
+_(For DataStream API)_
+
+- **Method:** Use `OpenLineageFlinkJobListener`.
+- **Pros:** Simple, "out-of-the-box" integration.
+- **Cons:** **CRITICAL:** Fails to report the final `ABORT` status when a job is cancelled.
 
   </div>
   <div>
 
-  ### Manual Orchestration
-  *(For Table API)*
-  - **Method:** Use the OpenLineage Java client directly.
-  - **Pros:** Complete lifecycle tracking including (`ABORT`/`FAIL`).
-  - **Cons:** Requires more explicit code in the application.
+### Manual Orchestration
+
+_(For Table API)_
+
+- **Method:** Use the OpenLineage Java client directly.
+- **Pros:** Complete lifecycle tracking including (`ABORT`/`FAIL`).
+- **Cons:** Requires more explicit code in the application.
 
   </div>
 </div>
@@ -157,6 +179,7 @@ OpenLineage handles [Flink 1.x and 2.x differently](https://openlineage.io/docs/
 
 Flink: One lineage job per application
 <br>
+
 <div class="center">
 
 ![](./images/data-lineage.gif)
@@ -174,12 +197,14 @@ A batch Spark job reads from a Flink Iceberg table and writes to a new one.
 - **Granularity:** Parent job with child jobs per action
 
 💡 **Namespace alignment** is key
+
 - Spark and upstream jobs (e.g., Flink) must use the same physical namespace (`s3://warehouse`) for end-to-end lineage.
 
 ---
 
 Spark: One lineage job per action
 <br>
+
 <div class="center">
 
 ![](./images/data-lineage.gif)
@@ -193,23 +218,24 @@ Spark: One lineage job per action
 <div class="columns">
   <div>
 
-  ### Key Takeaways
+### Key Takeaways
 
-  - **Choose the Right Integration Pattern**
-    - Balance simplicity vs. reliability.
-  - **Align Namespaces**
-    - Essential for linking jobs across technologies (e.g., Flink & Spark).
+- **Choose the Right Integration Pattern**
+  - Balance simplicity vs. reliability.
+- **Align Namespaces**
+
+  - Essential for linking jobs across technologies (e.g., Flink & Spark).
 
   </div>
   <div>
 
-  ### Next Steps
+### Next Steps
 
-  - **Explore the data lineage labs**
-    - See link on the next slide.
-  - **Start Small**
-    - Instrument a single critical pipeline first.
-  - **Questions?**
+- **Explore the data lineage labs**
+  - See link on the next slide.
+- **Start Small**
+  - Instrument a single critical pipeline first.
+- **Questions?**
 
   </div>
 </div>
