@@ -1,20 +1,13 @@
-const { Marp } = require('@marp-team/marp-core');
 const fs = require('fs');
 const path = require('path');
-const handlebars = require('handlebars');
+const { execSync } = require('child_process');
 
 // Create output directory
 if (!fs.existsSync('out')) {
   fs.mkdirSync('out', { recursive: true });
 }
 
-// Load and compile template
-const templateSource = fs.readFileSync('template.hbs', 'utf8');
-const template = handlebars.compile(templateSource);
-
 const publicationPaths = fs.readdirSync('publications');
-
-const marp = new Marp();
 console.log(`Found ${publicationPaths.length} projects`);
 
 for (const pPath of publicationPaths) {
@@ -29,21 +22,15 @@ for (const pPath of publicationPaths) {
 
   files.forEach((file) => {
     const filePath = path.join(publicationPath, file);
-    const markdown = fs.readFileSync(filePath, 'utf8');
-    const { html, css, comments } = marp.render(markdown);
-
     const fileName = path.basename(file, '.md') + '.html';
     const outputPath = path.join(outputDir, fileName);
 
-    const fullHtml = template({
-      title: path.basename(file, '.md'),
-      html,
-      css,
-      script: comments.join('\n')
-    });
-
-    fs.writeFileSync(outputPath, fullHtml);
-    console.log(`Built: ${outputPath}`);
+    try {
+      execSync(`npx @marp-team/marp-cli "${filePath}" -o "${outputPath}"`, { stdio: 'inherit' });
+      console.log(`Built: ${outputPath}`);
+    } catch (error) {
+      console.error(`Failed to build ${filePath}:`, error.message);
+    }
   });
 
   // Copy images directory if it exists
