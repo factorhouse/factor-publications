@@ -119,8 +119,12 @@ Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent 
 ---
 
 Kafka: One lineage job per connector
+<br>
+<div class="center">
 
-<img src="./images/data-lineage.gif" style="max-width:65%; max-height:80vh; display:block; margin:auto;">
+![](./images/data-lineage.gif)
+
+</div>
 
 ---
 
@@ -152,8 +156,12 @@ OpenLineage handles [Flink 1.x and 2.x differently](https://openlineage.io/docs/
 ---
 
 Flink: One lineage job per application
+<br>
+<div class="center">
 
-<img src="./images/data-lineage.gif" style="max-width:65%; max-height:80vh; display:block; margin:auto;">
+![](./images/data-lineage.gif)
+
+</div>
 
 ---
 
@@ -171,8 +179,12 @@ A batch Spark job reads from a Flink Iceberg table and writes to a new one.
 ---
 
 Spark: One lineage job per action
+<br>
+<div class="center">
 
-<img src="./images/data-lineage.gif" style="max-width:65%; max-height:80vh; display:block; margin:auto;">
+![](./images/data-lineage.gif)
+
+</div>
 
 ---
 
