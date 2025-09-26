@@ -165,7 +165,7 @@ _(For DataStream API)_
 
 _(For Table API)_
 
-- **Method:** Use the OpenLineage Java client.
+- **Method:** Use OpenLineage Java client.
 - **Pros:** Complete lifecycle tracking including (`ABORT`/`FAIL`).
 - **Cons:** Requires more explicit code in the app.
 
