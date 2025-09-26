@@ -13,7 +13,7 @@ style: |
   }
   section {
     font-family: 'Stolzl', sans-serif;
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: white;
     padding: 1.25em;
   }
