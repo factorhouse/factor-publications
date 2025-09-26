@@ -50,10 +50,14 @@ The journey of data - where it comes from, how it’s transformed, and where it 
 
 ## Why Data Lineage Matters
 
-- **Debugging & Root Cause Analysis**: Quickly trace issues back to the source.
-- **Impact Analysis & Governance**: See what happens if a table changes.
-- **Compliance & Audit**: Show data provenance for regulations.
-- **Trust & Reliability**: Increase confidence in data products.
+- **Debugging & Root Cause Analysis**: 
+  - Quickly trace issues back to the source.
+- **Impact Analysis & Governance**: 
+  - See what happens if a table changes.
+- **Compliance & Audit**: 
+  - Show data provenance for regulations.
+- **Trust & Reliability**: 
+  - Increase confidence in data products.
 
 ---
 
@@ -74,7 +78,7 @@ It supports integration with popular data tools:
 
 # Understanding the Two Lineage Paradigms
 
-One answers **"what happened?"** and the other shows **"what is happening right now."**
+One shows **"what happened"**, the other **"what's happening now"**
 
 <style>
 .columns {
@@ -122,11 +126,11 @@ _(Real-time & Operational)_
 Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent for Kafka Connect
 
 - **How it works**
-  - Hooks into the connector lifecycle (`RUNNING`, `FAIL`, `COMPLETE`) without altering data records.
+  - Hooks into connector lifecycle (`RUNNING`, `FAIL`, `COMPLETE`) without changing records.
 - **Key Feature**
   - Column-level lineage via Avro schemas in Schema Registry
 - **Consistent Namespacing**
-  - Creates physical dataset namespaces (`kafka://...`, `s3://...`) for job linking across Flink and Spark.
+  - Creates physical dataset namespaces (`kafka://...`, `s3://...`) for job linking.
 
 ---
 
@@ -152,7 +156,7 @@ _(For DataStream API)_
 
 - **Method:** Use `OpenLineageFlinkJobListener`.
 - **Pros:** Simple, "out-of-the-box" integration.
-- **Cons:** **CRITICAL:** Fails to report the final `ABORT` status when a job is cancelled.
+- **Cons:** Misses final `ABORT` on cancellation.
 
   </div>
   <div>
@@ -189,7 +193,7 @@ A batch Spark job reads from a Flink Iceberg table and writes to a new one.
 
 💡 **Namespace alignment** is key
 
-- Spark and upstream jobs (e.g., Flink) must use the same physical namespace (`s3://warehouse`) for end-to-end lineage.
+- Upstream jobs (e.g., Flink) must use the same physical NS (`s3://warehouse`).
 
 ---
 
