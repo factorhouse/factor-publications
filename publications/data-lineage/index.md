@@ -1,6 +1,6 @@
 ---
 marp: true
-paginate: true
+paginate: false
 title: End-to-End Data Lineage
 backgroundImage: url('./images/bg.png')
 backgroundSize: cover
@@ -20,6 +20,9 @@ style: |
     color: white;
     border-bottom: 1px dashed white;
     text-decoration: none;
+  }
+  footer {
+    text-align: center;
   }
 ---
 
