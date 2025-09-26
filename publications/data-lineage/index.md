@@ -131,8 +131,6 @@ Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent 
 ---
 
 Kafka: One lineage job per connector
-<br>
-
 <div class="center">
 
 ![](./images/data-lineage.gif)
@@ -173,8 +171,6 @@ _(For Table API)_
 ---
 
 Flink: One lineage job per application
-<br>
-
 <div class="center">
 
 ![](./images/data-lineage.gif)
@@ -198,8 +194,6 @@ A batch Spark job reads from a Flink Iceberg table and writes to a new one.
 ---
 
 Spark: One lineage job per action
-<br>
-
 <div class="center">
 
 ![](./images/data-lineage.gif)
