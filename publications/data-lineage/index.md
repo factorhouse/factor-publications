@@ -83,7 +83,7 @@ One shows **"what happened"**, the other **"what's happening now"**.
 <style>
 .columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 2rem;
   text-align: left;
 }
