@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rm -r out/ && node build.js",
     "deploy": "npm run build && wrangler deploy",
-    "dev": "nodemon --watch publications --exec \"node build.js\""
+    "dev": "nodemon --watch publications --exec \"node build.js\"",
+    "preview": "yarn build && python -m http.server -d out"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,8 @@
     "wrangler": "^4.40.1"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
     "nodemon": "^3.1.10"
   },
   "license": "Apache-2.0",
