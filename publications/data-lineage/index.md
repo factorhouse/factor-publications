@@ -233,9 +233,10 @@ Spark: One lineage job per action
 
 ---
 
+Data Lineage at Factor Platform!
 <div class="center">
 
-![](./images/qna.png)
+<img src="./images/factor-platform-hero.png" alt="Factor Platform" width="80%" />
 
 </div>
 
