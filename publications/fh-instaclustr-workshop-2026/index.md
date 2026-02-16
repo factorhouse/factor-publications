@@ -97,7 +97,7 @@ style: |
   - **Write:** Async REST to Kafka.
   - **Read:** WebSockets from KTable.
 - **Materialized View:**
-  - Kafka Streams consumes `product-events`.
+  - Kafka Streams consumes `inventory-events`.
   - Builds local in-memory **KTable**.
   - Serves requests instantly (No DB load).
 
