@@ -69,8 +69,9 @@ style: |
 
 # Environment Setup
 
-- **Verify Prerequisites**
-  - `./setup-environment.sh`
+- **Verify Prerequisites**: `./setup-environment.sh`
+- **Pull Docker Images**
+  - `docker compose -f ./compose-remote.yml pull`
 - **Infrastructure Launch**
   - **Kafka Cluster**
   - **PostgreSQL**
