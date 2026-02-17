@@ -75,6 +75,7 @@ style: |
   - **Kafka Cluster**
   - **PostgreSQL**
 - **Factor House Community License**
+- **Update `.env` and `application.properties`**
 - **Training Platform Launch**
   - `python scripts/manage_topics.py --action create`
   - `python scripts/manage_db.py --action init`
@@ -110,11 +111,11 @@ style: |
 
 - **CQRS (Command Query Responsibility Segregation):**
   - **Write Path:** Async processing via Flink & Postgres.
-  - **Read Path:** High-speed queries via Quarkus.
-- **Event Sourcing & Materialized Views:**
+  - **Read Path:** Instant queries via Quarkus.
+- **Event Sourcing:**
   - **Source of Truth:** The Kafka Topic (Log).
-  - **State:** Derived by replaying history into a **KTable**.
-  - **Result:** Zero-latency WebSocket reads (No DB bottleneck).
+  - **State:** Replayed history builds the local **KTable**.
+  - **Result:** Zero-latency reads; no database bottlenecks.
 
 ![bg right fit](./images/backend-deep-dive.png)
 
