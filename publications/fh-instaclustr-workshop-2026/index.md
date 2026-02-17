@@ -110,7 +110,7 @@ style: |
 # Backend Deep Dive
 
 - **CQRS (Command Query Responsibility Segregation):**
-  - **Write Path:** Async processing via Flink & Postgres.
+  - **Write Path:** Transactional writes to Postgres & Kafka.
   - **Read Path:** Instant queries via Quarkus.
 - **Event Sourcing:**
   - **Source of Truth:** The Kafka Topic (Log).
@@ -163,7 +163,7 @@ style: |
 # Key Takeaways
 
 - **CQRS & Event Sourcing:**
-  - Decouples **Reads** (Quarkus/WebSockets) from **Writes** (Flink/Postgres).
+  - Decouples **Reads** (Quarkus/WebSockets) from **Writes** (Postgres & Kafka).
   - Ensures high performance and independent scaling.
 - **Stateful Stream Processing:**
   - Flink manages complex **Application State** (Inventory), not just analytics.
