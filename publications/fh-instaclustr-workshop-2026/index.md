@@ -34,13 +34,13 @@ style: |
   }
 ---
 
-# Building Resilient<br>Event-Driven Systems<br>with Kafka and Flink
+# Building Resilient Event-Driven Systems<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with Kafka and Flink
 
 <br><br><br><br>
 
 ## Presented by<br>[**Factor House**](https://factorhouse.io/) and [**NetApp Instaclustr**](https://www.instaclustr.com/)
 
-![bg right fit small](./images/qr-code.png)
+<!-- ![bg right fit small](./images/qr-code.png) -->
 
 ---
 
@@ -171,3 +171,13 @@ style: |
 - **CDC (Change Data Capture):**
   - "Glues" that binds the Transactional DB to the Stream.
   - Eliminates "Dual Write" issues and guarantees consistency.
+
+---
+
+# Thank You!
+
+<div class="center">
+
+![](./images/qr-codes.png)
+
+</div>
