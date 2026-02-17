@@ -70,11 +70,15 @@ style: |
 # Environment Setup
 
 - **Verify Prerequisites**
+  - `./setup-environment.sh`
 - **Infrastructure Launch**
   - **Kafka Cluster**
   - **PostgreSQL**
 - **Factor House Community License**
 - **Training Platform Launch**
+  - `python scripts/manage_topics.py --action create`
+  - `python scripts/manage_db.py --action init`
+  - `./start-platform-remote.sh`
 
 ![bg right fit](./images/training-platform.png)
 
