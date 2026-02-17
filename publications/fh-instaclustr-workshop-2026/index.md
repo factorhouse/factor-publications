@@ -142,6 +142,8 @@ style: |
 - **Action:** User A purchases "_FutureTech UltraBook Pro 15_" (PROD_0001).
 - **Reaction:** User B's inventory count drops instantly.
 - **Observability:** Switch to **Kpow**. Trace the purchase event using Data Inspect.
+  - Select `order-events` and `inventory-events` topics.
+  - Filter by a product Id e.g. `.value.productId == "PROD_0001"`.
 
 ![bg right fit](./images/lab-1-demo.gif)
 
@@ -160,9 +162,12 @@ style: |
 
 # Key Takeaways
 
-- **Quarkus:**
-  - Reactive UI requires separating Reads (WebSockets) from Writes (REST).
-- **Flink:**
-  - Not just for analytics. It handles core business logic and state.
-- **CDC:**
-  - Essential for data integrity in distributed systems.
+- **CQRS & Event Sourcing:**
+  - Decouples **Reads** (Quarkus/WebSockets) from **Writes** (Flink/Postgres).
+  - Ensures high performance and independent scaling.
+- **Stateful Stream Processing:**
+  - Flink manages complex **Application State** (Inventory), not just analytics.
+  - Replaces traditional database lookups with local state access.
+- **CDC (Change Data Capture):**
+  - "Glues" that binds the Transactional DB to the Stream.
+  - Eliminates "Dual Write" issues and guarantees consistency.
