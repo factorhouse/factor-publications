@@ -109,12 +109,12 @@ style: |
 # Backend Deep Dive
 
 - **CQRS (Command Query Responsibility Segregation):**
-  - **Write:** Async REST to Kafka.
-  - **Read:** WebSockets from KTable.
-- **Materialized View:**
-  - Kafka Streams consumes `inventory-events`.
-  - Builds local in-memory **KTable**.
-  - Serves requests instantly (No DB load).
+  - **Write Path:** Async processing via Flink & Postgres.
+  - **Read Path:** High-speed queries via Quarkus.
+- **Event Sourcing & Materialized Views:**
+  - **Source of Truth:** The Kafka Topic (Log).
+  - **State:** Derived by replaying history into a **KTable**.
+  - **Result:** Zero-latency WebSocket reads (No DB bottleneck).
 
 ![bg right fit](./images/backend-deep-dive.png)
 
@@ -123,7 +123,7 @@ style: |
 # Flink Deep Dive
 
 - **Inventory Job (The Brain)**
-  - **Hybrid Source:** Bootstraps from File (S3) to Real-time (Kafka).
+  - **Hybrid Source:** Bootstraps from File to Real-time (Kafka).
   - **Main Process:** Handles _orders_ and _product updates_ in one stream.
   - **Advanced Patterns:**
     - **Side outputs** for alerts and **timers** to manage expiration logic.
