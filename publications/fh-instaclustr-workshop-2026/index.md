@@ -53,7 +53,7 @@ style: |
 # KartShoppe 🛒
 
 - **Modern, Decoupled E-Commerce Reference Architecture**
-- **Full-Stack: Reactive Frontend, Quarkus, Kafka & Flink**
+- **Full-Stack: React Frontend, Quarkus, Kafka & Flink**
 
 ## Key Learning Objectives
 
