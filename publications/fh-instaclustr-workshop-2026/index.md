@@ -44,7 +44,18 @@ style: |
 
 ---
 
-# Key Learning Objectives
+# Presenters
+
+![](./images/presenters.png)
+
+---
+
+# KartShoppe 🛒
+
+- **Modern, Decoupled E-Commerce Reference Architecture**
+- **Full-Stack: Reactive Frontend, Quarkus, Kafka & Flink**
+
+## Key Learning Objectives
 
 - **Event-Driven Architecture**
 - **Reactive Microservices**
