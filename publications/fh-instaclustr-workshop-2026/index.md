@@ -177,8 +177,10 @@ style: |
 
 # Thank You!
 
-<div class="center">
+<br>
 
-![](./images/qr-codes.png)
+### Share Feedback: https://bit.ly/3ML9QXY
 
-</div>
+### Get the Code: https://bit.ly/3Oirhjb
+
+![bg right fit](./images/qr-codes.png)
