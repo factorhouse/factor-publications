@@ -34,10 +34,12 @@ style: |
   }
 ---
 
-# ❗ Please Complete Prerequisites
+## ❗ Please Complete Prerequisites
 
 <br><br><br>
 
 ## GitHub Link: https://bit.ly/4tMvQCA
+
+## Slack Link: https://bit.ly/4kFEBKi
 
 ![bg right fit](./images/prerequisites.png)
