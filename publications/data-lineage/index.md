@@ -50,13 +50,13 @@ The journey of data - where it comes from, how it’s transformed, and where it 
 
 ## Why Data Lineage Matters
 
-- **Debugging & Root Cause Analysis**: 
+- **Debugging & Root Cause Analysis**:
   - Quickly trace issues back to the source.
-- **Impact Analysis & Governance**: 
+- **Impact Analysis & Governance**:
   - See what happens if a table changes.
-- **Compliance & Audit**: 
+- **Compliance & Audit**:
   - Show data provenance for regulations.
-- **Trust & Reliability**: 
+- **Trust & Reliability**:
   - Increase confidence in data products.
 
 ---
@@ -135,9 +135,10 @@ Use custom **Single Message Transform (SMT)** as a "pass-through" lineage agent.
 ---
 
 Kafka: One lineage job per connector
+
 <div class="center">
 
-![](./images/data-lineage.gif)
+![](./images/data-lineage-kafka.gif)
 
 </div>
 
@@ -175,9 +176,10 @@ _(For Table API)_
 ---
 
 Flink: One lineage job per application
+
 <div class="center">
 
-![](./images/data-lineage.gif)
+![](./images/data-lineage-flink.gif)
 
 </div>
 
@@ -198,9 +200,10 @@ A batch Spark job reads from a Flink Iceberg table and writes to a new one.
 ---
 
 Spark: One lineage job per action
+
 <div class="center">
 
-![](./images/data-lineage.gif)
+![](./images/data-lineage-spark.gif)
 
 </div>
 
@@ -228,12 +231,13 @@ Spark: One lineage job per action
 - **Start Small**
   - Instrument a single critical pipeline first.
 
+    </div>
   </div>
-</div>
 
 ---
 
 Data Lineage at Factor Platform!
+
 <div class="center">
 
 <img src="./images/factor-platform-hero.png" alt="Factor Platform" width="80%" />
