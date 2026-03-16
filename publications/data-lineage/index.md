@@ -44,6 +44,37 @@ Developer Experience @ Factor House
 
 ---
 
+# Hi, I'm Jaehyeon Kim 👋
+
+_Developer Experience @ Factor House_
+
+- **Background:** Data Science, Data Eng, & Software Eng.
+- **Experience:** Years of building on modern data platforms.
+- **Focus:** Data streaming architectures (Kafka, Flink).
+- **Passion:** Building and sharing insights on resilient, observable systems at scale.
+- **Role:** Shaping DevEx for Kpow, Flex, & Factor Platform.
+
+---
+
+# Factor House
+
+_Building tools to make streaming data architectures accessible and observable._
+
+<div class="columns">
+  <div>
+    <br>
+    <ul>
+      <li><strong>Kpow & Flex:</strong> Our enterprise engineering toolkits for Kafka (Kpow) and Flink (Flex).</li>
+      <li><strong>Factor Platform:</strong> Spanning multiple technologies, it bridges lineage, governance, and insights into one unified experience.</li>
+    </ul>
+  </div>
+  <div class="center">
+    <img src="./images/factor-platform-hero.png" alt="Factor Platform" width="100%" />
+  </div>
+</div>
+
+---
+
 # What is Data Lineage?
 
 The journey of data - where it comes from, how it’s transformed, and where it ends up.
@@ -233,16 +264,6 @@ Spark: One lineage job per action
 
     </div>
   </div>
-
----
-
-Data Lineage at Factor Platform!
-
-<div class="center">
-
-<img src="./images/factor-platform-hero.png" alt="Factor Platform" width="80%" />
-
-</div>
 
 ---
 
